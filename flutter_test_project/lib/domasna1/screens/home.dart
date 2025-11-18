@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:namer_app/widgets/exam_list.dart';
+import 'package:namer_app/domasna1/widgets/exam_list.dart';
 
 class HomeWidget extends StatelessWidget {
   static const String indeks = "221147";

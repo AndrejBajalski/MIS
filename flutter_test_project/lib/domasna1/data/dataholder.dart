@@ -1,4 +1,4 @@
-import 'package:namer_app/models/exam.dart';
+import 'package:namer_app/domasna1/models/exam.dart';
 
 class Dataholder {
   static List<Exam> exams = [

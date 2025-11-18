@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:namer_app/data/dataholder.dart';
-import 'package:namer_app/models/exam.dart';
-import 'package:namer_app/widgets/exam_card.dart';
+import 'package:namer_app/domasna1/data/dataholder.dart';
+import 'package:namer_app/domasna1/models/exam.dart';
+import 'package:namer_app/domasna1/widgets/exam_card.dart';
 
 class ExamList extends StatelessWidget {
   final List<Exam> allExams = Dataholder.listExams();
