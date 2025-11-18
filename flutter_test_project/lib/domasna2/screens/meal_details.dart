@@ -8,34 +8,51 @@ class MealDetailsWidget extends StatelessWidget {
         ModalRoute.of(context)!.settings.arguments as MealDetails;
 
     return Scaffold(
-      appBar: AppBar(
-        title: Text("Meal Preparation details for ${mealDetails.name}"),
-      ),
-      body: Padding(
-        padding: EdgeInsetsGeometry.all(20.0),
-        child: Row(children: [
-          Image.network(mealDetails.thumbnail),
-          Column(
-            children: [
-              Text("Ingredients:", style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold)),
-              SizedBox(height: 8),
-              ListView.builder(
-                itemCount: mealDetails.ingredients.length,
-                itemBuilder: (context, index) {
-                  final ingredient = mealDetails.ingredients[index];
-                  return Row(
-                    children: [
-                      Text("${ingredient['ingredient']}", style: TextStyle(fontWeight: FontWeight.bold)),
-                      Text("${ingredient['measure']}"),
-                    ],
-                  );
-                },
-              ),
-              Text("YouTube Link: $mealDetails.youtubeLink"),
-            ]),
-          ],
+      appBar: AppBar(title: Text("Meal Details")),
+      body: SingleChildScrollView(
+      padding: EdgeInsets.all(22.0),
+      child: Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
+      spacing: 10,
+      children: [
+        Center(child: Column(
+          crossAxisAlignment: CrossAxisAlignment.center,
+          children: [
+          Image.network(mealDetails.thumbnail, width: 200),
+          Text(
+            mealDetails.name,
+            style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
+          )
+          ])
         ),
-      ),
+        SizedBox(height: 8),
+        Text(
+          "Ingredients:",
+          style: TextStyle(fontSize: 22, fontWeight: FontWeight.bold),
+        ),
+        ListView.builder(
+            shrinkWrap: true,
+            physics: NeverScrollableScrollPhysics(), 
+            itemCount: mealDetails.ingredients.length,
+            itemBuilder: (context, index) {
+              final ingredient = mealDetails.ingredients[index];
+              return Row(
+                spacing: 6,
+                children: [
+                  Text(
+                    "${ingredient['ingredient']}:",
+                    style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
+                  ),
+                  Text("${ingredient['measure']}", style: TextStyle(fontSize: 16, )),
+                ],
+              );
+            },
+          ),
+        SizedBox(height: 8),            
+        Text("Instructions for preparation:", style: TextStyle(fontSize: 22, fontWeight: FontWeight.bold)),
+        Text(mealDetails.instructions, style: TextStyle(fontSize: 16))
+        ]
+    ))
     );
   }
 }

@@ -16,6 +16,18 @@ class MainApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+      theme: ThemeData(
+        scaffoldBackgroundColor: Colors.white, // Background color
+        colorScheme: ColorScheme.light(
+          primary: Colors.blue,
+          onPrimary: Colors.white,
+          surface: Colors.white, // Alternative background
+        ),
+        textTheme: TextTheme(
+          bodyMedium: TextStyle(color: Colors.black), // Default text color
+        ),
+      ),
+      
       initialRoute: "/",
       //routing for homework exercise 1
       // routes: {
