@@ -53,4 +53,17 @@ class DatafetchService {
       );
     }).toList().first;
   }
+
+  Future<Meal> fetchRandomMeal() async {
+    String URL = "$baseURL/random.php"; 
+    var response = await http.get(Uri.parse(URL));
+    var responseJson = jsonDecode(response.body);
+    return responseJson['meals'].map<Meal>((json) {
+      return Meal(
+        id: json['idMeal'],
+        name: json['strMeal'],
+        thumbnail: json['strMealThumb'],
+      );
+    }).toList().first;
+  }
 }

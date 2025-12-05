@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:namer_app/domasna2/screens/home.dart';
 import 'package:namer_app/domasna2/screens/meal_details.dart';
 import 'package:namer_app/domasna2/screens/meals.dart';
+import 'package:namer_app/domasna2/screens/random_recipe.dart';
 //packages for homework exercise 1
 // import 'package:namer_app/domasna1/screens/exam_details.dart';
 // import 'package:namer_app/domasna1/screens/home.dart';
@@ -39,7 +40,8 @@ class MainApp extends StatelessWidget {
       routes: {
         "/": (context) => HomePage(),
         "/meals": (context) => MealsPage(),
-        "/mealDetails": (context) => MealDetailsWidget()
+        "/mealDetails": (context) => MealDetailsWidget(),
+        "/randomRecipe": (context) => RandomRecipePage()
       },
     );
   }

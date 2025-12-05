@@ -25,6 +25,14 @@ class _HomePageState extends State<HomePage> {
     return Scaffold(
       appBar: AppBar(
         title: Text("Food Categories"),
+        actions: [
+          TextButton(
+            onPressed: () {
+              Navigator.pushNamed(context, "/randomRecipe");
+            },
+            child: Text("Recipe of the week"),
+          ),
+        ],
       ),
       body: FutureBuilder<List<FoodCategory>>(
         future: _allCategories,
@@ -50,7 +58,6 @@ class _HomePageState extends State<HomePage> {
             );
           }
         },
-
       ),
     );
   }
