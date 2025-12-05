@@ -6,8 +6,18 @@ import 'package:namer_app/domasna2/screens/random_recipe.dart';
 //packages for homework exercise 1
 // import 'package:namer_app/domasna1/screens/exam_details.dart';
 // import 'package:namer_app/domasna1/screens/home.dart';
+import 'package:firebase_core/firebase_core.dart';
+import 'package:namer_app/domasna2/services/firebase_messaging_service.dart';
+import 'package:namer_app/domasna2/services/local_notifications_service.dart';
+import 'firebase_options.dart';
 
-void main() {
+void main() async{
+  WidgetsFlutterBinding.ensureInitialized();
+  await Firebase.initializeApp( options: DefaultFirebaseOptions.currentPlatform);
+  final localNotificationsService = LocalNotificationsService.instance();
+  await localNotificationsService.init();
+  final firebaseMessagingService = FirebaseMessagingService.instance();
+  await firebaseMessagingService.init(localNotificationsService: localNotificationsService);
   runApp(const MainApp());
 }
 
